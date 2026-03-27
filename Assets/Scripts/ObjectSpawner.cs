@@ -7,8 +7,8 @@ public class ObjectSpawner : MonoBehaviour
     public float ladySpawn = 5f;
     public float spawnInterval = 4f;
 
-	public GameObject PowerUpOne;
-	public GameObject PowerUpTwo;
+	[SerializeField] private GameObject PowerUpOne;
+    [SerializeField] private GameObject PowerUpTwo;
 
     private List<SpawnTimer> SpawnTimers;
 
