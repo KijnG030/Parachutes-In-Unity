@@ -1803,12 +1803,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SpawnerObject: {fileID: 3477063183928277361, guid: 0d146749f210d2549b75b4570f75a3f7, type: 3}
-  ladySpawn: 5
+  ladySpawn: 3
   spawnInterval: 1.6
-  PowerUpOne: {fileID: 2593122457548344000, guid: 4f45817507a2812458f1567cf059ad2f, type: 3}
-  powerUpOneSpawnInterval: 4
+  PowerUpOne: {fileID: 4222101569241669446, guid: a0e27b549baa88e4da722af5ae4e0041, type: 3}
+  powerUpOneSpawnInterval: 10
   PowerUpTwo: {fileID: 4578488376328299339, guid: 844f4a17844d6884ca03907ecab02e32, type: 3}
-  powerUpTwoSpawnInterval: 4
+  powerUpTwoSpawnInterval: 5
   spawnArea: {x: 2.04, y: 0}
 --- !u!4 &1983438685
 Transform:
