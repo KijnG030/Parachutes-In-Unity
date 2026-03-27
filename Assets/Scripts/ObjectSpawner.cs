@@ -1,54 +1,40 @@
-using Unity.VisualScripting;
 using UnityEngine;
+using System.Collections.Generic;
 
 public class ObjectSpawner : MonoBehaviour
 {
     public GameObject SpawnerObject;
-    private GameObject Clone;
     public float ladySpawn = 5f;
     public float spawnInterval = 4f;
 
 	public GameObject PowerUpOne;
-	[SerializeField] private float powerUpOneSpawnInterval;
-
 	public GameObject PowerUpTwo;
-    [SerializeField] private float powerUpTwoSpawnInterval;
 
-    private GameObject PowerUpClone;
+    private List<SpawnTimer> SpawnTimers;
 
 	public Vector2 spawnArea = new Vector2(0, 0);
 
     private void Awake()
     {
-        powerUpOneSpawnInterval = Random.Range(10f, 30f);
-        powerUpTwoSpawnInterval = Random.Range(10f, 30f);
+        SpawnTimers = new List<SpawnTimer>
+        {
+            new SpawnTimer(SpawnerObject, spawnInterval, spawnInterval),
+            new SpawnTimer(PowerUpOne, 10f, 30f),
+            new SpawnTimer(PowerUpTwo, 10, 30f)
+        };
     }
 
 	void FixedUpdate()
     {
-        // neemt een random plek tussen deze waardes waar het game object gespawned kan worden
-        spawnArea[0] = Random.Range(-7.5f, 7.5f);
-        spawnArea[1] = Random.Range(6f, 9f);
+        spawnArea.x = Random.Range(-7.5f, 7.5f);
+        spawnArea.y = Random.Range(6f, 9f);
 
-        ladySpawn -= Time.deltaTime;
-        if (ladySpawn <= 0f)
+        foreach (SpawnTimer spawnTimer in SpawnTimers)
         {
-            Clone = Instantiate(SpawnerObject, spawnArea, Quaternion.identity);
-            ladySpawn = spawnInterval;
+            if (spawnTimer.Tick(Time.fixedDeltaTime))
+            {
+                Instantiate(spawnTimer.prefab, spawnArea, Quaternion.identity);
+            }
         }
-
-        powerUpOneSpawnInterval -= Time.deltaTime;
-        if (powerUpOneSpawnInterval <= 0f)
-        {
-            PowerUpClone = Instantiate(PowerUpOne, spawnArea, Quaternion.identity);
-			powerUpOneSpawnInterval = Random.Range(10f, 30f);
-		}
-
-		powerUpTwoSpawnInterval -= Time.deltaTime;
-        if (powerUpTwoSpawnInterval <= 0f)
-        {
-            PowerUpClone = Instantiate(PowerUpTwo, spawnArea, Quaternion.identity);
-			powerUpTwoSpawnInterval = Random.Range(10f, 30f);
-		}
 	}
 }
