@@ -103,7 +103,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3da9091dbbbf3f8419510f4ab8926e95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  p_thrust: 500
+  playerThrust: 40
+  SpriteRenderer: {fileID: 0}
 --- !u!50 &1925216314886240190
 Rigidbody2D:
   serializedVersion: 5
@@ -180,3 +181,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c98c6efd1e3e0ed40966fc0f9beb3cca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scorePoints: 1
+  lifeHeal: 1

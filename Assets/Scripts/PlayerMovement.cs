@@ -5,9 +5,10 @@ public class PlayerMovement : MonoBehaviour
 {
 	Rigidbody2D playerRigidbody;
 
-	[SerializeField] private float playerThrust = 20f;
+	[SerializeField] private float playerThrust;
+    private float horizontalInput;
 
-	[SerializeField] private SpriteRenderer SpriteRenderer;
+    [SerializeField] private SpriteRenderer SpriteRenderer;
 
 	private float xPosLastFrame;
 
@@ -18,11 +19,16 @@ public class PlayerMovement : MonoBehaviour
 
 	private void Update()
 	{
-		Movement();
-		PlayerLookDirection();
+        horizontalInput = Input.GetAxisRaw("Horizontal");
+        PlayerLookDirection();
 	}
 
-	private void PlayerLookDirection()
+    private void FixedUpdate()
+    {
+		Movement();
+    }
+
+    private void PlayerLookDirection()
 	{
 		if (transform.position.x > xPosLastFrame)
 		{
@@ -38,14 +44,6 @@ public class PlayerMovement : MonoBehaviour
 
 	private void Movement()
 	{
-		// gebruikt Rigidbody om karakter te laten bewegen met A naar links en D naar rechts
-		if (Input.GetKey(KeyCode.A))
-		{
-			playerRigidbody.AddForce(transform.right * playerThrust * -1);
-		}
-		if (Input.GetKey(KeyCode.D))
-		{
-			playerRigidbody.AddForce(transform.right * playerThrust);
-		}
-	}
+        playerRigidbody.AddForce(Vector2.right * horizontalInput * playerThrust);
+    }
 }

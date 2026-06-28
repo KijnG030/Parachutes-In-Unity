@@ -8,8 +8,6 @@ public class ButtonManager : MonoBehaviour
     // Veranderd de scene naar de scene die is gekoppeld aan "sceneName"
     public void ChangeScene()
     {
-        ScoreManager.score = 0;
-        ScoreManager.lives = 3;
         SceneManager.LoadScene(sceneName);
     }
 }

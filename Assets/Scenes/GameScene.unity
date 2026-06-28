@@ -1757,7 +1757,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 950513e318d37f248b04236f19483318, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: GameOver
 --- !u!4 &1917939947
 Transform:
   m_ObjectHideFlags: 0
@@ -1877,7 +1876,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4037547666421663510, guid: 8ea5c9d1c5007ef4ba94abfb9f94efb6, type: 3}
       propertyPath: playerThrust
-      value: 40
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 4037547666421663510, guid: 8ea5c9d1c5007ef4ba94abfb9f94efb6, type: 3}
       propertyPath: SpriteRenderer
