@@ -1802,13 +1802,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb239c524248e9f488f861b0d8e0552f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpawnerObject: {fileID: 3477063183928277361, guid: 0d146749f210d2549b75b4570f75a3f7, type: 3}
+  ladyPrefab: {fileID: 3477063183928277361, guid: 0d146749f210d2549b75b4570f75a3f7, type: 3}
   ladySpawn: 3
   spawnInterval: 1.6
   PowerUpOne: {fileID: 4222101569241669446, guid: a0e27b549baa88e4da722af5ae4e0041, type: 3}
-  powerUpOneSpawnInterval: 10
   PowerUpTwo: {fileID: 4578488376328299339, guid: 844f4a17844d6884ca03907ecab02e32, type: 3}
-  powerUpTwoSpawnInterval: 5
   spawnArea: {x: 2.04, y: 0}
 --- !u!4 &1983438685
 Transform:
@@ -1876,6 +1874,10 @@ PrefabInstance:
     - target: {fileID: 3942022326384072995, guid: 8ea5c9d1c5007ef4ba94abfb9f94efb6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4037547666421663510, guid: 8ea5c9d1c5007ef4ba94abfb9f94efb6, type: 3}
+      propertyPath: playerThrust
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 4037547666421663510, guid: 8ea5c9d1c5007ef4ba94abfb9f94efb6, type: 3}
       propertyPath: SpriteRenderer

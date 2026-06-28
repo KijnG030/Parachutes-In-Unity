@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 public class ObjectSpawner : MonoBehaviour
 {
-    public GameObject SpawnerObject;
+    public GameObject ladyPrefab;
     public float ladySpawn = 5f;
     public float spawnInterval = 4f;
 
@@ -18,7 +18,7 @@ public class ObjectSpawner : MonoBehaviour
     {
         SpawnTimers = new List<SpawnTimer>
         {
-            new SpawnTimer(SpawnerObject, spawnInterval, spawnInterval),
+            new SpawnTimer(ladyPrefab, spawnInterval, spawnInterval),
             new SpawnTimer(PowerUpOne, 10f, 30f),
             new SpawnTimer(PowerUpTwo, 10, 30f)
         };

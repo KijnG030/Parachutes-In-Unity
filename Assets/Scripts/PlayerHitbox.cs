@@ -6,24 +6,26 @@ using UnityEngine;
 public class PlayerHitbox : MonoBehaviour 
 {
 	[SerializeField] private int scorePoints = 1;
+	[SerializeField] private int lifeHeal = 1;
+
 	private void OnTriggerEnter2D(Collider2D other)
 	{
         if (other.gameObject.CompareTag("Lady"))
         {
             Destroy(other.gameObject);
-			ScoreManager.score += scorePoints;
+            GameEvents.OnScoreAdded?.Invoke(scorePoints);
 		}
 
 		if (other.gameObject.CompareTag("Pow1"))
 		{
 			Destroy(other.gameObject);
-			ScoreManager.lives += 1;
+            GameEvents.OnLivesChanged?.Invoke(lifeHeal);
 		}
 
 		if (other.gameObject.CompareTag("Pow2"))
 		{
 			Destroy(other.gameObject);
-			ScoreManager.score += 5;
+			GameEvents.OnScoreAdded?.Invoke(scorePoints * 5);
 		}
 	}
 }

@@ -3,9 +3,9 @@ using UnityEngine.UIElements;
 
 public class PlayerMovement : MonoBehaviour
 {
-	Rigidbody2D p_Rigidbody;
+	Rigidbody2D playerRigidbody;
 
-	[SerializeField] private float p_thrust = 20f;
+	[SerializeField] private float playerThrust = 20f;
 
 	[SerializeField] private SpriteRenderer SpriteRenderer;
 
@@ -13,10 +13,10 @@ public class PlayerMovement : MonoBehaviour
 
 	private void Start()
 	{
-		p_Rigidbody = GetComponent<Rigidbody2D>();
+        playerRigidbody = GetComponent<Rigidbody2D>();
 	}
 
-	private void FixedUpdate()
+	private void Update()
 	{
 		Movement();
 		PlayerLookDirection();
@@ -41,11 +41,11 @@ public class PlayerMovement : MonoBehaviour
 		// gebruikt Rigidbody om karakter te laten bewegen met A naar links en D naar rechts
 		if (Input.GetKey(KeyCode.A))
 		{
-			p_Rigidbody.AddForce(transform.right * p_thrust * -1);
+			playerRigidbody.AddForce(transform.right * playerThrust * -1);
 		}
 		if (Input.GetKey(KeyCode.D))
 		{
-			p_Rigidbody.AddForce(transform.right * p_thrust);
+			playerRigidbody.AddForce(transform.right * playerThrust);
 		}
 	}
 }

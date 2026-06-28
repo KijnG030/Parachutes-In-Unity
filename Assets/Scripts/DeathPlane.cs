@@ -11,8 +11,8 @@ public class DeathPlane : MonoBehaviour
 		if (other.gameObject.CompareTag("Lady"))
 		{
 			Destroy(other.gameObject);
-			ScoreManager.lives -= 1;
-		}
+            GameEvents.OnLivesChanged?.Invoke(-1);
+        }
 	}
 
 }

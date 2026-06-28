@@ -5,14 +5,17 @@ using UnityEngine.UI;
 
 public class LevelManager : MonoBehaviour
 {
-    public string sceneName;
+    private bool gameOverLoaded = false;
 
-	// Veranderd de scene naar de scene die is gekoppeld aan "sceneName"
-	public void ChangeScene()
+    private void Update()
     {
-		ScoreManager.score = 0;
-		SceneManager.LoadScene(sceneName);
-    }
+        if (!gameOverLoaded && ScoreManager.lives <= 0)
+        {
+            gameOverLoaded = true;
+            ScoreManager.score = 0;
+            ScoreManager.lives = 3;
 
-    
+            SceneManager.LoadScene("GameOver");
+        }
+    }
 }

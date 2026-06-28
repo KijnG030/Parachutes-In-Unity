@@ -1,7 +1,7 @@
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class SpawnTimer : MonoBehaviour
+public class SpawnTimer
 {
     public GameObject prefab;
     public float interval;
